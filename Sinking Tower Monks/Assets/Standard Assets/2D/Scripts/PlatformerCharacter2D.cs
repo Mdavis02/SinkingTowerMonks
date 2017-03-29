@@ -52,7 +52,10 @@ namespace UnityStandardAssets._2D
             //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
             if (Input.GetKey(KeyCode.Q) && inRange == true)
             {
-                enemy.GetComponent<Rigidbody2D>().AddForce(transform.right * 10000);
+                //enemy = GameObject.FindWithTag("Enemy");
+                Vector2 dir = (enemy.transform.position - transform.position).normalized;
+                Debug.Log("Button has been pressed");
+                enemy.GetComponent<Rigidbody2D>().AddForce(dir * 25f);
             }
         }
 
@@ -129,7 +132,9 @@ namespace UnityStandardAssets._2D
         {
             if(other.gameObject.tag == "Enemy")
             {
+                enemy = other.gameObject;
                 inRange = true;
+                Debug.Log("Enemy in range");
             }
         }
 
@@ -137,7 +142,9 @@ namespace UnityStandardAssets._2D
         {
             if (other.gameObject.tag == "Enemy")
             {
+                enemy = null;
                 inRange = false;
+                Debug.Log("Enemy left range");
             }
         }
     }

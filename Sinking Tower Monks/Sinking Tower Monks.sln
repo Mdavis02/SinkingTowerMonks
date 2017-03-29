@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinking Tower Monks.CSharp.Plugins", "Sinking Tower Monks.CSharp.Plugins.csproj", "{6EAC19BB-5AE2-BC41-40D2-F79F1A0AA8BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinking Tower Monks.Plugins", "Sinking Tower Monks.Plugins.csproj", "{5681919F-9771-CC5C-9948-B80E371926FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinking Tower Monks.CSharp", "Sinking Tower Monks.CSharp.csproj", "{C16C2B0B-BD36-5F01-9B4A-EFE29E1BB962}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinking Tower Monks", "Sinking Tower Monks.csproj", "{689F63CF-0D91-3CEA-34CA-AA0B685BCC2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinking Tower Monks.CSharp.Editor", "Sinking Tower Monks.CSharp.Editor.csproj", "{2E61FAB1-F3EC-FE42-E4E2-CB7CC5C0F8F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinking Tower Monks.Editor", "Sinking Tower Monks.Editor.csproj", "{E0E2B034-4424-2754-3396-F1909896859E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,18 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6EAC19BB-5AE2-BC41-40D2-F79F1A0AA8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EAC19BB-5AE2-BC41-40D2-F79F1A0AA8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EAC19BB-5AE2-BC41-40D2-F79F1A0AA8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EAC19BB-5AE2-BC41-40D2-F79F1A0AA8BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C16C2B0B-BD36-5F01-9B4A-EFE29E1BB962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C16C2B0B-BD36-5F01-9B4A-EFE29E1BB962}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C16C2B0B-BD36-5F01-9B4A-EFE29E1BB962}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C16C2B0B-BD36-5F01-9B4A-EFE29E1BB962}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E61FAB1-F3EC-FE42-E4E2-CB7CC5C0F8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E61FAB1-F3EC-FE42-E4E2-CB7CC5C0F8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E61FAB1-F3EC-FE42-E4E2-CB7CC5C0F8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E61FAB1-F3EC-FE42-E4E2-CB7CC5C0F8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5681919F-9771-CC5C-9948-B80E371926FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5681919F-9771-CC5C-9948-B80E371926FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5681919F-9771-CC5C-9948-B80E371926FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5681919F-9771-CC5C-9948-B80E371926FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{689F63CF-0D91-3CEA-34CA-AA0B685BCC2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689F63CF-0D91-3CEA-34CA-AA0B685BCC2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689F63CF-0D91-3CEA-34CA-AA0B685BCC2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689F63CF-0D91-3CEA-34CA-AA0B685BCC2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E2B034-4424-2754-3396-F1909896859E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E2B034-4424-2754-3396-F1909896859E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E2B034-4424-2754-3396-F1909896859E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E2B034-4424-2754-3396-F1909896859E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

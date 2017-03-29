@@ -15,6 +15,11 @@ namespace UnityStandardAssets._2D
         public GameObject enemy;
         public bool inRange = false;
         bool started = false;
+        private float force = 50f;
+        public int comboTime = 0;
+        public bool comboChance0 = true;
+        public bool comboChance1 = false;
+        public bool comboChance2 = false;
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
         private bool m_Grounded;            // Whether or not the player is grounded.
@@ -33,9 +38,58 @@ namespace UnityStandardAssets._2D
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Q) && inRange == true)
+            {
+                Vector2 dir = (enemy.transform.position - transform.position).normalized;
+                if (comboChance0 == true)
+                {
+                    force = 50f;
+                    enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
+                    comboTime = 0;
+                    comboChance1 = true;
+                    comboChance0 = false;
+                }
+                else if (comboChance1 == true && comboTime > 30 && comboTime < 60)
+                {
+                    force = force * 2;
+                    enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
+                    comboChance1 = false;
+                    comboChance2 = true;
+                    comboTime = 0;
+                }
+                else if (comboChance2 == true && comboTime > 30 && comboTime < 60)
+                {
+                    force = force * 2;
+                    enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
+                    comboTime = 0;
+                    comboChance2 = false;
+                    comboChance0 = true;
+                }
+                Debug.Log("force = " + force);
+                //enemy = GameObject.FindWithTag("Enemy");
+                
+                Debug.Log("Button has been pressed");
+                
+            }
+        }
         private void FixedUpdate()
         {
+            if (comboChance1 == true || comboChance2 == true)
+            {
+                if (comboTime >= 0 && comboTime < 60)
+                {
+                    comboTime++;
+                }
+                else
+                {
+                    comboTime = 0;
+                    comboChance0 = true;
+                    comboChance1 = false;
+                    comboChance2 = false;
+                }
+            }
             m_Grounded = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -50,13 +104,7 @@ namespace UnityStandardAssets._2D
 
             // Set the vertical animation
             //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
-            if (Input.GetKey(KeyCode.Q) && inRange == true)
-            {
-                //enemy = GameObject.FindWithTag("Enemy");
-                Vector2 dir = (enemy.transform.position - transform.position).normalized;
-                Debug.Log("Button has been pressed");
-                enemy.GetComponent<Rigidbody2D>().AddForce(dir * 25f);
-            }
+            
         }
 
 

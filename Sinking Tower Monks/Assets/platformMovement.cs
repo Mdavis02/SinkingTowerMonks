@@ -21,6 +21,10 @@ public class platformMovement : MonoBehaviour {
         {
             transform.Translate(Vector3.down * Time.deltaTime);
         }
+        if (transform.position.y < -6)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

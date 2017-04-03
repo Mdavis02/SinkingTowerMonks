@@ -99,7 +99,7 @@ public class BossMovement : MonoBehaviour {
                 lineOfSightTeleport();
 
 
-                moveChoice = Random.Range(0, 3);
+                moveChoice = Random.Range(0, 2);
 
             }
             //if (moveChoice == 2 && isMoving == false && downed == false)
@@ -284,7 +284,7 @@ public class BossMovement : MonoBehaviour {
         //yield return new WaitForSeconds(2);
         //inbetweenMove = false;
         Debug.Log("Move number is: " + moveChoice);
-        moveChoice = Random.Range(0, 3);
+        moveChoice = Random.Range(0, 2);
        
         tell = tell * -1;
         //yield return new WaitForSeconds(2);

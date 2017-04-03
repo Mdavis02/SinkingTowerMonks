@@ -11,7 +11,7 @@ public class platformSpawn : MonoBehaviour {
     int offset = 1;
     bool placeholder = false;
     bool boss1Spawn = false;
-    int k = 1;
+    int k = 0;
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("CharacterRobotBoy");
@@ -62,7 +62,15 @@ public class platformSpawn : MonoBehaviour {
 
         while (placeholder == true)
         {
-            if (k > 0)
+            if (k == 0 || k == 4)
+            {
+                Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                if (k == 4)
+                {
+                    k = 0;
+                }
+            }
+            else if (k == 1 || k == 3)
             {
                 Instantiate(platform, new Vector3(0, 8.8f, 0), Quaternion.identity);
                 if (boss1Spawn == false)
@@ -71,13 +79,13 @@ public class platformSpawn : MonoBehaviour {
                     boss1Spawn = true;
                 }
             }
-            else
+            else if (k == 2)
             {
-                Instantiate(platform, new Vector3(-3, 8.8f, 0), Quaternion.identity);
-                Instantiate(platform, new Vector3(3, 8.8f, 0), Quaternion.identity);
+                Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                Instantiate(platform, new Vector3(3.75f, 8.8f, 0), Quaternion.identity);
             }
-            k = k * -1;
-            yield return new WaitForSeconds(3.5f);
+            k++;
+            yield return new WaitForSeconds(2.5f);
         }
     }
 }

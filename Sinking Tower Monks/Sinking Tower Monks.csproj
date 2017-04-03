@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\SaveData2D.cs" />
     <Compile Include="Assets\Scripts\Weapon2D.cs" />
     <Compile Include="Assets\ScrollBkg.cs" />
+    <Compile Include="Assets\Thunderbolt.cs" />
     <Compile Include="Assets\outOfBounds.cs" />
     <Compile Include="Assets\platformBroken.cs" />
     <Compile Include="Assets\platformMovement.cs" />

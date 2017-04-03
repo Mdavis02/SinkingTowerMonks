@@ -15,7 +15,8 @@ namespace UnityStandardAssets._2D
         public GameObject enemy;
         public bool inRange = false;
         bool started = false;
-        private float force = 50f;
+        private float force;
+        private float initForce;
         public int comboTime = 0;
         public bool comboChance0 = true;
         public bool comboChance1 = false;
@@ -42,36 +43,73 @@ namespace UnityStandardAssets._2D
         {
             if (Input.GetKeyDown(KeyCode.Q) && inRange == true)
             {
-                Vector2 dir = (enemy.transform.position - transform.position).normalized;
-                if (comboChance0 == true)
+                if (enemy.gameObject.tag == "Enemy")
                 {
-                    force = 50f;
-                    enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
-                    comboTime = 0;
-                    comboChance1 = true;
-                    comboChance0 = false;
+                    Vector2 dir = (enemy.transform.position - transform.position).normalized;
+                    if (comboChance0 == true)
+                    {
+                        force = initForce;
+                        enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
+                        comboTime = 0;
+                        comboChance1 = true;
+                        comboChance0 = false;
+                    }
+                    else if (comboChance1 == true && comboTime > 30 && comboTime < 60)
+                    {
+                        force = force * 2;
+                        enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
+                        comboChance1 = false;
+                        comboChance2 = true;
+                        comboTime = 0;
+                    }
+                    else if (comboChance2 == true && comboTime > 30 && comboTime < 60)
+                    {
+                        force = force * 2;
+                        enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
+                        comboTime = 0;
+                        comboChance2 = false;
+                        comboChance0 = true;
+                    }
+                    Debug.Log("force = " + force);
+                    //enemy = GameObject.FindWithTag("Enemy");
+
+                    Debug.Log("Button has been pressed");
+
                 }
-                else if (comboChance1 == true && comboTime > 30 && comboTime < 60)
+                else if (enemy.gameObject.tag == "Boss1" && enemy.GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezeAll)
                 {
-                    force = force * 2;
-                    enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
-                    comboChance1 = false;
-                    comboChance2 = true;
-                    comboTime = 0;
+                    //Vector2 dir = (enemy.transform.position - transform.position).normalized;
+                    if (comboChance0 == true)
+                    {
+                        force = initForce;
+                        enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                        enemy.GetComponent<Rigidbody2D>().AddForce(transform.up * (force * -1));
+                        comboTime = 0;
+                        comboChance1 = true;
+                        comboChance0 = false;
+                    }
+                    else if (comboChance1 == true && comboTime > 30 && comboTime < 60)
+                    {
+                        force = force * 2;
+                        enemy.GetComponent<Rigidbody2D>().AddForce(transform.up * (force * -1));
+                        comboChance1 = false;
+                        comboChance2 = true;
+                        comboTime = 0;
+                    }
+                    else if (comboChance2 == true && comboTime > 30 && comboTime < 60)
+                    {
+                        force = force * 2;
+                        enemy.GetComponent<Rigidbody2D>().AddForce(transform.up * (force * -1));
+                        comboTime = 0;
+                        comboChance2 = false;
+                        comboChance0 = true;
+                    }
+                    Debug.Log("force = " + force);
+                    //enemy = GameObject.FindWithTag("Enemy");
+
+                    Debug.Log("Button has been pressed");
+
                 }
-                else if (comboChance2 == true && comboTime > 30 && comboTime < 60)
-                {
-                    force = force * 2;
-                    enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
-                    comboTime = 0;
-                    comboChance2 = false;
-                    comboChance0 = true;
-                }
-                Debug.Log("force = " + force);
-                //enemy = GameObject.FindWithTag("Enemy");
-                
-                Debug.Log("Button has been pressed");
-                
             }
         }
         private void FixedUpdate()
@@ -180,19 +218,26 @@ namespace UnityStandardAssets._2D
         {
             if(other.gameObject.tag == "Enemy")
             {
+                initForce = 50f;
                 enemy = other.gameObject;
                 inRange = true;
-                Debug.Log("Enemy in range");
+                //Debug.Log("Enemy in range");
+            }
+            else if(other.gameObject.tag == "Boss1")
+            {
+                initForce = 300f;
+                enemy = other.gameObject;
+                inRange = true;
             }
         }
 
         void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss1")
             {
                 enemy = null;
                 inRange = false;
-                Debug.Log("Enemy left range");
+                //Debug.Log("Enemy left range");
             }
         }
     }

@@ -4,26 +4,35 @@ using System.Collections;
 public class platformSpawn : MonoBehaviour {
 
     public GameObject platform;
+    public GameObject killzone;
     public GameObject platformBroken;
     public GameObject boss1;
     public GameObject player;
+    public GameObject startPlat;
     int randomSpawn;
     int offset = 1;
     bool placeholder = false;
     bool boss1Spawn = false;
+    bool started = false;
     int k = 0;
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("CharacterRobotBoy");
-        StartCoroutine(spawnRate());
+        startPlat = GameObject.Find("StartPlatform");
+        killzone = GameObject.Find("Killzone");
         spawnRate();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (player == null)
+        if (player == null || killzone == null)
         {
             Destroy(this.gameObject);
+        }
+        if (startPlat == null && started == false)
+        {
+            StartCoroutine(spawnRate());
+            started = true;
         }
     }
 
@@ -81,7 +90,7 @@ public class platformSpawn : MonoBehaviour {
             }
             else if (k == 2)
             {
-                Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                //Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
                 Instantiate(platform, new Vector3(3.75f, 8.8f, 0), Quaternion.identity);
             }
             k++;

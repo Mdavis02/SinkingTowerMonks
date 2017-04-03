@@ -2,19 +2,22 @@
 using System.Collections;
 
 public class platformMovement : MonoBehaviour {
-
+    public GameObject killzone;
     public GameObject player;
     public bool playerOn;
+    public GameObject startPlat;
 
 	// Use this for initialization
 	void Start () {
         playerOn = false;
 	    player = GameObject.Find("CharacterRobotBoy");
+        killzone = GameObject.Find("Killzone");
+        startPlat = GameObject.Find("StartPlatform");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (player != null)
+        if (startPlat == null && player != null && killzone!= null)
         {
             transform.Translate(Vector3.down * Time.deltaTime);
         }

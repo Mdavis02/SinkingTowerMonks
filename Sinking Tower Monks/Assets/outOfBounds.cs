@@ -25,6 +25,7 @@ public class outOfBounds : MonoBehaviour {
                 Destroy(boss.gameObject);
                 victoryScreen.gameObject.SetActive(true);
                 gameEnd = true;
+                Destroy(this.gameObject);
             }
         }
 	}

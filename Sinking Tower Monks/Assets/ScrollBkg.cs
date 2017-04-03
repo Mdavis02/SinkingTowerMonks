@@ -8,6 +8,8 @@ public class ScrollBkg : MonoBehaviour
     public Material secondPhase;
     public Material thirdPhase;
     public GameObject player;
+    public GameObject killzone;
+    public GameObject startPlat;
     public float speed = .5f;
     Vector3 moveDown;
     Vector2 offset;
@@ -23,6 +25,8 @@ public class ScrollBkg : MonoBehaviour
         moveDown = new Vector3(0, transform.position.y - 11.77f, transform.position.z);
         //Debug.Log("Current position of quads is: " + transform.position.y); 
         player = GameObject.Find("CharacterRobotBoy");
+        killzone = GameObject.Find("Killzone");
+        startPlat = GameObject.Find("StartPlatform");
     }
 
     // Update is called once per frame
@@ -33,7 +37,7 @@ public class ScrollBkg : MonoBehaviour
         //{
         //    scroll = false;
         //}
-        if (player != null)
+        if (startPlat == null && player != null && killzone != null)
         {
             progressTrack();
             if (scroll == true)

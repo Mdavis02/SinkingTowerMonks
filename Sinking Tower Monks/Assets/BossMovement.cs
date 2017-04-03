@@ -9,6 +9,7 @@ public class BossMovement : MonoBehaviour {
     //public GameObject[] platforms = new GameObject[6];
     //GameObject victoryScreen;
     public GameObject lightning;
+    public GameObject spear;
     GameObject player;
     public bool knockedDown = false;
     public bool inAir = false;
@@ -24,6 +25,7 @@ public class BossMovement : MonoBehaviour {
     public bool vulnerable = false;
     bool teleportOK = false;
     bool lightningBolt = false;
+    bool spearAttack = false;
     int i = 0;
     int k = 0;
     int j = 0;
@@ -53,74 +55,94 @@ public class BossMovement : MonoBehaviour {
         //    victoryScreen.gameObject.SetActive(true);
         //    Destroy(this.gameObject);
         //}
-        platforms = GameObject.FindGameObjectsWithTag("Platform");
+        if (player != null)
+        {
+            platforms = GameObject.FindGameObjectsWithTag("Platform");
 
-        //Debug.Log("Boss position is: " + boss.transform.position);
-        //GameObject.Find("Killzone")
-        if (teleportOK == true && downed == false)
-        {
-            vulnerable = false;
-            StartCoroutine(runningAwayTeleport());
-            runningAwayTeleport();
-        }
-        if (lightningBolt == true && downed == false)
-        {
-            Instantiate(lightning, new Vector3(0, transform.position.y, transform.position.z), Quaternion.identity);
-            lightningBolt = false;
-        }
-        if (runningAway == true && downed == false)
-        {
-            isMoving = true;
-            //StartCoroutine(outOfBoundsTeleport());
-            StartCoroutine(runningAwayTeleport());
-            bossAnim.SetBool("disappear", true);
-            runningAwayTeleport();
-            //outOfBoundsTeleport();
-        }
-        if (moveChoice == 1 && isMoving == false && downed == false)
-        {
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            //GetComponent<Rigidbody2D>().isKinematic = true;
-            vulnerable = true;
-            StartCoroutine(lineOfSightTeleport());
-            bossAnim.SetBool("disappear", true);
-            transform.position = new Vector3((player.transform.position.x * -1), player.transform.position.y, player.transform.position.z);
-            lineOfSightTeleport();
-            
-            
-            moveChoice = Random.Range(0, 3);
+            //Debug.Log("Boss position is: " + boss.transform.position);
+            //GameObject.Find("Killzone")
+            if (teleportOK == true && downed == false)
+            {
+                vulnerable = false;
+                StartCoroutine(runningAwayTeleport());
+                runningAwayTeleport();
+            }
+            if (lightningBolt == true && downed == false)
+            {
+                Instantiate(lightning, new Vector3(0, transform.position.y, transform.position.z), Quaternion.identity);
+                lightningBolt = false;
+            }
+            if (spearAttack == true && downed == false)
+            {
+                Instantiate(spear, new Vector3(transform.position.x - .5f, transform.position.y + .5f, transform.position.z), Quaternion.identity);
+                Instantiate(spear, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), Quaternion.identity);
+                Instantiate(spear, new Vector3(transform.position.x + .5f, transform.position.y + .5f, transform.position.z), Quaternion.identity);
+                spearAttack = false;
+            }
+            if (runningAway == true && downed == false)
+            {
+                isMoving = true;
+                //StartCoroutine(outOfBoundsTeleport());
+                StartCoroutine(runningAwayTeleport());
+                bossAnim.SetBool("disappear", true);
+                runningAwayTeleport();
+                //outOfBoundsTeleport();
+            }
+            if (moveChoice == 1 && isMoving == false && downed == false)
+            {
+                GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                //GetComponent<Rigidbody2D>().isKinematic = true;
+                vulnerable = true;
+                StartCoroutine(lineOfSightTeleport());
+                bossAnim.SetBool("disappear", true);
+                transform.position = new Vector3((player.transform.position.x * -1), player.transform.position.y, player.transform.position.z);
+                lineOfSightTeleport();
 
-        }
-        if (transform.position.y <= -2 && GetComponent<Rigidbody2D>().velocity.y > -14/*&& transform.position.y > -3*//*knockedDown == false && inAir == false*/)
-        {
-            //Debug.Log("Velocity is: " + GetComponent<Rigidbody2D>().velocity.y > -14);
-            isMoving = true;
-            StartCoroutine(outOfBoundsTeleport());
-            //platforms = GameObject.FindGameObjectsWithTag("Platform");
-            //Debug.Log("Boss about to die");
 
-            bossAnim.SetBool("disappear", true);
-            outOfBoundsTeleport();
-            //bossAnim.SetBool("disappear", false);
-            //if (platforms[k].transform.position.y > -2)
+                moveChoice = Random.Range(0, 3);
+
+            }
+            //if (moveChoice == 2 && isMoving == false && downed == false)
             //{
-            //    transform.position = new Vector3(platforms[k].transform.position.x, platforms[k].transform.position.y + 2, platforms[k].transform.position.z);
+            //    GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            //    //GetComponent<Rigidbody2D>().isKinematic = true;
+            //    vulnerable = true;
+            //    StartCoroutine(spearAttackTeleport());
+            //    bossAnim.SetBool("disappear", true);
+            //    transform.position = new Vector3(0, 3.8f, transform.position.z);
+            //    spearAttackTeleport();
             //}
-            //else
-            //{
-            //    k++;
-            //}
+            if (transform.position.y <= -2 && GetComponent<Rigidbody2D>().velocity.y > -14/*&& transform.position.y > -3*//*knockedDown == false && inAir == false*/)
+            {
+                //Debug.Log("Velocity is: " + GetComponent<Rigidbody2D>().velocity.y > -14);
+                isMoving = true;
+                StartCoroutine(outOfBoundsTeleport());
+                //platforms = GameObject.FindGameObjectsWithTag("Platform");
+                //Debug.Log("Boss about to die");
 
-            //bossAnim.SetBool("disappear", false);
-            //bossAnim.SetBool("appear", true);
-            //outOfBoundsTeleport();
-            //bossAnim.SetBool("appear", false);
+                bossAnim.SetBool("disappear", true);
+                outOfBoundsTeleport();
+                //bossAnim.SetBool("disappear", false);
+                //if (platforms[k].transform.position.y > -2)
+                //{
+                //    transform.position = new Vector3(platforms[k].transform.position.x, platforms[k].transform.position.y + 2, platforms[k].transform.position.z);
+                //}
+                //else
+                //{
+                //    k++;
+                //}
 
-        }
-        else
-        {
+                //bossAnim.SetBool("disappear", false);
+                //bossAnim.SetBool("appear", true);
+                //outOfBoundsTeleport();
+                //bossAnim.SetBool("appear", false);
 
-            bossAnim.SetBool("disappear", false);
+            }
+            else
+            {
+
+                bossAnim.SetBool("disappear", false);
+            }
         }
 
         //Debug.Log("moveInbetween is: " + inbetweenMove);
@@ -129,12 +151,15 @@ public class BossMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        moveTimer++;
-        if (moveTimer > 180 && isMoving == false && downed == false)
+        if (player != null)
         {
-            //inbetweenMove = false;
-            //StartCoroutine(moveAttack());
-            moveAttack();
+            moveTimer++;
+            if (moveTimer > 180 && isMoving == false && downed == false)
+            {
+                //inbetweenMove = false;
+                //StartCoroutine(moveAttack());
+                moveAttack();
+            }
         }
     }
 
@@ -232,6 +257,24 @@ public class BossMovement : MonoBehaviour {
         teleportOK = true;
         StopCoroutine(lineOfSightTeleport());
             //outOfBoundsAppear();
+        //GameObject.Find("Player").GetComponent<PlatformerCharacter2D>().m_grounded = false;    
+    }
+
+    IEnumerator spearAttackTeleport()
+    {
+        yield return new WaitForSeconds(.3f);
+
+
+        //runningAway = false;
+        //isMoving = false;
+        yield return new WaitForSeconds(2f);
+        //lightningBolt = true;
+        spearAttack = true;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        //GetComponent<Rigidbody2D>().isKinematic = false;
+        teleportOK = true;
+        StopCoroutine(spearAttackTeleport());
+        //outOfBoundsAppear();
         //GameObject.Find("Player").GetComponent<PlatformerCharacter2D>().m_grounded = false;    
     }
 

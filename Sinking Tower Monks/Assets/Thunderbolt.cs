@@ -33,12 +33,12 @@ public class Thunderbolt : MonoBehaviour {
             player = other.gameObject;
             if (player.transform.position.x > boss.transform.position.x)
             {
-                player.GetComponent<Rigidbody2D>().AddForce(transform.right * 1000);
+                player.GetComponent<Rigidbody2D>().AddForce(transform.right * 500);
                 //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
             }
             else
             {
-                player.GetComponent<Rigidbody2D>().AddForce(transform.right * -1000);
+                player.GetComponent<Rigidbody2D>().AddForce(transform.right * -500);
                 //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
             }
         }

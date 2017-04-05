@@ -250,7 +250,7 @@ public class BossMovement : MonoBehaviour {
         
         //runningAway = false;
         //isMoving = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         lightningBolt = true;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         //GetComponent<Rigidbody2D>().isKinematic = false;

@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BossMovement.cs" />
+    <Compile Include="Assets\CanJump.cs" />
     <Compile Include="Assets\Scripts\AdvancedCharacter2D.cs" />
     <Compile Include="Assets\Scripts\AnimatedItem2D.cs" />
     <Compile Include="Assets\Scripts\BasicAction2D.cs" />

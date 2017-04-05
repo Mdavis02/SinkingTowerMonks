@@ -128,16 +128,16 @@ namespace UnityStandardAssets._2D
                     comboChance2 = false;
                 }
             }
-            m_Grounded = false;
+            //m_Grounded = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-            for (int i = 0; i < colliders.Length; i++)
-            {
-                if (colliders[i].gameObject != gameObject)
-                    m_Grounded = true;
-            }
+            //Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+            //for (int i = 0; i < colliders.Length; i++)
+            //{
+            //    //if (colliders[i].gameObject != gameObject)
+            //    //    m_Grounded = true;
+            //}
             //m_Anim.SetBool("Ground", m_Grounded);
 
             // Set the vertical animation
@@ -192,11 +192,11 @@ namespace UnityStandardAssets._2D
             {
                 if(started == false)
                 {
-                    Destroy(tempPlat);
+                    //Destroy(tempPlat);
                     started = true;
                 }
                 // Add a vertical force to the player.
-                m_Grounded = false;
+                //m_Grounded = false;
                 //m_Anim.SetBool("Ground", false);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
@@ -229,6 +229,16 @@ namespace UnityStandardAssets._2D
                 enemy = other.gameObject;
                 inRange = true;
             }
+           
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            //if (other.gameObject.tag == "Platform")
+            //{
+            //    Debug.Log("Standing on platform");
+            //    m_Grounded = true;
+            //}
         }
 
         void OnTriggerExit2D(Collider2D other)
@@ -239,6 +249,28 @@ namespace UnityStandardAssets._2D
                 inRange = false;
                 //Debug.Log("Enemy left range");
             }
+            //if (other.gameObject.tag == "Platform")
+            //{
+            //    m_Grounded = false;
+            //}
         }
+
+        //private void OnCollisionStay2D(Collision2D other)
+        //{
+        //    Debug.Log("Something is colliding: " + other.gameObject.tag);
+        //    if (other.gameObject.tag == "Platform")
+        //    {
+        //        Debug.Log("Standing on platform");
+        //        m_Grounded = true;
+        //    }
+        //}
+
+        //private void OnCollisionExit2D(Collision2D other)
+        //{
+        //    if (other.gameObject.tag == "Platform")
+        //    {
+        //        m_Grounded = false;
+        //    }
+        //}
     }
 }

@@ -29,6 +29,7 @@ public class Thunderbolt : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            other.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             boss = GameObject.FindWithTag("Boss1");
             player = other.gameObject;
             if (player.transform.position.x > boss.transform.position.x)

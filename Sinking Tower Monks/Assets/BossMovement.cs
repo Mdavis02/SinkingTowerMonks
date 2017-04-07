@@ -26,6 +26,7 @@ public class BossMovement : MonoBehaviour {
     bool teleportOK = false;
     bool lightningBolt = false;
     bool spearAttack = false;
+    bool approached = false;
     int i = 0;
     int k = 0;
     int j = 0;
@@ -88,7 +89,7 @@ public class BossMovement : MonoBehaviour {
                 runningAwayTeleport();
                 //outOfBoundsTeleport();
             }
-            if (moveChoice == 1 && isMoving == false && downed == false)
+            if (moveChoice == 1 && isMoving == false && downed == false && approached == true)
             {
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 //GetComponent<Rigidbody2D>().isKinematic = true;
@@ -168,6 +169,7 @@ public class BossMovement : MonoBehaviour {
         if(other.gameObject.tag == "Player" && vulnerable == false && downed == false)
         {
             //Debug.Log("Player is in boss range");
+            approached = true;
             runningAway = true;
         }
         //    if (i < 6)
@@ -250,8 +252,11 @@ public class BossMovement : MonoBehaviour {
         
         //runningAway = false;
         //isMoving = false;
-        yield return new WaitForSeconds(3f);
-        lightningBolt = true;
+        yield return new WaitForSeconds(2f);
+        if (GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezeAll)
+        {
+            lightningBolt = true;
+        }
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         //GetComponent<Rigidbody2D>().isKinematic = false;
         teleportOK = true;

@@ -42,7 +42,7 @@ namespace UnityStandardAssets._2D
         void OnTriggerEnter2D(Collider2D other)
         {
             //Debug.Log("This is colliding: " + other.gameObject.transform.name);
-            if (other.gameObject.tag == "Platform")
+            if (other.gameObject.tag == "Platform" || other.gameObject.tag == "SafePlat")
             {
                 //Debug.Log("Almost there");
                 GameObject.Find("CharacterRobotBoy").GetComponent<PlatformerCharacter2D>().m_Grounded = true;

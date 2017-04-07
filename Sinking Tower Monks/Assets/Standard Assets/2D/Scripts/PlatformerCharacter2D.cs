@@ -14,6 +14,7 @@ namespace UnityStandardAssets._2D
         public GameObject tempPlat;
         public GameObject enemy;
         public GameObject chance;
+        Vector2 dir;
         public bool inRange = false;
         bool started = false;
         private float force;
@@ -48,7 +49,7 @@ namespace UnityStandardAssets._2D
             {
                 if (enemy.gameObject.tag == "Enemy")
                 {
-                    Vector2 dir = (enemy.transform.position - transform.position).normalized;
+                    dir = (enemy.transform.position - transform.position).normalized;
                     if (comboChance0 == true)
                     {
                         force = initForce;
@@ -81,7 +82,7 @@ namespace UnityStandardAssets._2D
                 }
                 else if (enemy.gameObject.tag == "Boss1" && enemy.GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezeAll)
                 {
-                    Vector2 dir = (enemy.transform.position - transform.position).normalized;
+                    dir = (enemy.transform.position - transform.position).normalized;
                     if (comboChance0 == true)
                     {
                         force = initForce;
@@ -93,7 +94,7 @@ namespace UnityStandardAssets._2D
                         comboChance0 = false;
                         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                     }
-                    else if (comboChance1 == true && comboTime > 10 && comboTime < 30)
+                    else if (comboChance1 == true && comboTime > 20 && comboTime < 40)
                     {
                         
                         force = force * 2;
@@ -104,7 +105,7 @@ namespace UnityStandardAssets._2D
                         comboChance2 = true;
                         comboTime = 0;
                     }
-                    else if (comboChance2 == true && comboTime > 10 && comboTime < 30)
+                    else if (comboChance2 == true && comboTime > 20 && comboTime < 40)
                     {
                         force = force * 2;
                         enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -113,6 +114,8 @@ namespace UnityStandardAssets._2D
                         comboChance2 = false;
                         comboChance0 = true;
                         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                        //GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
+                        //GetComponent<Rigidbody2D>().AddForce(dir * 50);
                     }
                     Debug.Log("force = " + force);
                     //enemy = GameObject.FindWithTag("Enemy");
@@ -128,11 +131,11 @@ namespace UnityStandardAssets._2D
             {
                 if (comboTime >= 0 && comboTime < 60)
                 {
-                    if (comboTime > 10 && comboTime < 30)
+                    if (comboTime > 20 && comboTime < 40)
                     {
                         chance.SetActive(true);
                     }
-                    if (comboTime <= 10 || comboTime >= 30)
+                    if (comboTime <= 20 || comboTime >= 40)
                     {
                         chance.SetActive(false);
                     }
@@ -141,7 +144,10 @@ namespace UnityStandardAssets._2D
                 
                 else
                 {
+
                     GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                    //GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
+                    //GetComponent<Rigidbody2D>().AddForce(dir * 50);
                     comboTime = 0;
                     comboChance0 = true;
                     comboChance1 = false;

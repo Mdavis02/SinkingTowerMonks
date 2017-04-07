@@ -9,6 +9,9 @@ public class platformSpawn : MonoBehaviour {
     public GameObject boss1;
     public GameObject player;
     public GameObject startPlat;
+    public GameObject platPickup;
+    GameObject currentPickup;
+    int pickupSpawn;
     int randomSpawn;
     int offset = 1;
     bool placeholder = false;
@@ -17,10 +20,12 @@ public class platformSpawn : MonoBehaviour {
     int k = 0;
 	// Use this for initialization
 	void Start () {
+        pickupSpawn = Random.Range(6, 12);
         player = GameObject.Find("CharacterRobotBoy");
         startPlat = GameObject.Find("StartPlatform");
         killzone = GameObject.Find("Killzone");
         spawnRate();
+        Debug.Log("Pickup Spawn is: " + pickupSpawn);
 	}
 	
 	// Update is called once per frame
@@ -46,6 +51,11 @@ public class platformSpawn : MonoBehaviour {
             if (brokenPlat >= 0)
             {
                 Instantiate(platform, new Vector3(randomSpawn, 8.8f, 0), Quaternion.identity);
+                if (i == pickupSpawn)
+                {
+                    Instantiate(platPickup, new Vector3(randomSpawn, 9f, 0), Quaternion.identity);
+
+                }
                 if (doublePlatform > 0 && randomSpawn != 1 && randomSpawn != -1 && randomSpawn != 0)
                 {
                     Instantiate(platform, new Vector3(randomSpawn * -1, 8.8f, 0), Quaternion.identity);

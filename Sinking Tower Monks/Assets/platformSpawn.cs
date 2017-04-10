@@ -6,14 +6,20 @@ public class platformSpawn : MonoBehaviour {
     public GameObject platform;
     public GameObject killzone;
     public GameObject platformBroken;
+    public GameObject defPickup;
     public GameObject boss1;
     public GameObject player;
     public GameObject startPlat;
     public GameObject platPickup;
+    public GameObject enemy;
+    GameObject childEnemy;
     GameObject childPickup;
     GameObject parentPickup;
     GameObject currentPickup;
+    int enemySpawn;
     int pickupSpawn;
+    int pickupSpawn2;
+    int randomDist;
     int randomSpawn;
     int offset = 1;
     bool placeholder = false;
@@ -22,13 +28,23 @@ public class platformSpawn : MonoBehaviour {
     int k = 0;
 	// Use this for initialization
 	void Start () {
-        pickupSpawn = Random.Range(6, 12);
+        pickupSpawn = Random.Range(6, 7);
+        randomDist = Random.Range(0,1);
+        if (randomDist == 0)
+        {
+            pickupSpawn2 = pickupSpawn + 4;
+        }
+        else if (randomDist == 1)
+        {
+            pickupSpawn2 = pickupSpawn - 4;
+        }
         player = GameObject.Find("CharacterRobotBoy");
         startPlat = GameObject.Find("StartPlatform");
         killzone = GameObject.Find("Killzone");
         spawnRate();
         Debug.Log("Pickup Spawn is: " + pickupSpawn);
-	}
+        Debug.Log("Pickup Spawn 2 is: " + pickupSpawn2);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,18 +63,28 @@ public class platformSpawn : MonoBehaviour {
     {
         for (int i = 0; i < 12; i++)
         {
+            enemySpawn = Random.Range(0, 5);
             int brokenPlat = 1/*Random.Range(-2, 4)*/;
             int randomSpawn = Random.Range(-2, 2) + offset;
             int doublePlatform = Random.Range(-1, 2);
             if (brokenPlat >= 0)
             {
                 parentPickup = Instantiate(platform, new Vector3(randomSpawn, 8.8f, 0), Quaternion.identity) as GameObject;
+                if (enemySpawn == 3 || enemySpawn == 5 || enemySpawn == 1)
+                {
+                    Instantiate(enemy, new Vector3(randomSpawn, 10f, 0), Quaternion.identity);
+                }
                 if (i == pickupSpawn)
                 {
-                    childPickup = Instantiate(platPickup, new Vector3(randomSpawn, 9f, 0), Quaternion.identity) as GameObject;
+                    childPickup = Instantiate(platPickup, new Vector3(randomSpawn, 10f, 0), Quaternion.identity) as GameObject;
                     childPickup.transform.parent = parentPickup.transform;
                 }
-                if (doublePlatform > 0 && randomSpawn != 1 && randomSpawn != -1 && randomSpawn != 0)
+                if (i == pickupSpawn2)
+                {
+                    childPickup = Instantiate(defPickup, new Vector3(randomSpawn, 10f, 0), Quaternion.identity) as GameObject;
+                    childPickup.transform.parent = parentPickup.transform;
+                }
+                if (doublePlatform > 0 && (randomSpawn > 2 || randomSpawn < -2) && randomSpawn != 0)
                 {
                     Instantiate(platform, new Vector3(randomSpawn * -1, 8.8f, 0), Quaternion.identity);
                 }

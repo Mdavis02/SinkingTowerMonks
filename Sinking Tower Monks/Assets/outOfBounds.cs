@@ -3,6 +3,10 @@ using System.Collections;
 
 public class outOfBounds : MonoBehaviour {
 
+    public GameObject victTop;
+    public GameObject victBot;
+    public GameObject defTop;
+    public GameObject defBot;
     public GameObject deathPlayer;
     public GameObject deathScreen;
     public GameObject victoryScreen;
@@ -23,10 +27,13 @@ public class outOfBounds : MonoBehaviour {
             if (boss.transform.position.y < -7.7)
             {
                 Destroy(boss.gameObject);
+                Instantiate(victBot);
+                Instantiate(victTop);
                 victoryScreen.gameObject.SetActive(true);
                 gameEnd = true;
                 Destroy(this.gameObject);
             }
+            
         }
 	}
 
@@ -47,6 +54,8 @@ public class outOfBounds : MonoBehaviour {
         {
             Vector3 playerpos = new Vector3(other.transform.position.x, -5, other.transform.position.z);
             Destroy(other.gameObject);
+            Instantiate(defBot);
+            Instantiate(defTop);
             Instantiate(deathPlayer, playerpos, Quaternion.identity);
             deathScreen.gameObject.SetActive(true);
             gameEnd = true;

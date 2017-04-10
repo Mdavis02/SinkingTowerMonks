@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace UnityStandardAssets._2D
@@ -14,12 +15,14 @@ namespace UnityStandardAssets._2D
         public GameObject tempPlat;
         public GameObject enemy;
         public GameObject chance;
+        GameObject animChild;
         Vector2 dir;
         public bool inRange = false;
         bool started = false;
         private float force;
         private float initForce;
         public int comboTime = 0;
+        public float playerForce;
         public bool comboChance0 = true;
         public bool comboChance1 = false;
         public bool comboChance2 = false;
@@ -29,29 +32,36 @@ namespace UnityStandardAssets._2D
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator m_Anim;            // Reference to the player's animator component.
+        private Animator c_Anim;
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         private void Awake()
         {
             // Setting up references.
+            animChild = GameObject.Find("PlayerAirProjectile_0");
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             chance = GameObject.FindWithTag("Chance");
             chance.SetActive(false);
             m_Anim = GetComponent<Animator>();
+            c_Anim = animChild.GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            playerForce = 50f;
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Q) && inRange == true)
             {
+                c_Anim.SetBool("isAttacking", true);
+                StartCoroutine(attackAnimWait());
                 if (enemy.gameObject.tag == "Enemy")
                 {
                     dir = (enemy.transform.position - transform.position).normalized;
                     if (comboChance0 == true)
                     {
+                        c_Anim.SetInteger("attackNum", 0);
                         force = initForce;
                         enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
                         comboTime = 0;
@@ -60,6 +70,7 @@ namespace UnityStandardAssets._2D
                     }
                     else if (comboChance1 == true && comboTime > 30 && comboTime < 60)
                     {
+                        c_Anim.SetInteger("attackNum", 1);
                         force = force * 2;
                         enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
                         comboChance1 = false;
@@ -68,6 +79,7 @@ namespace UnityStandardAssets._2D
                     }
                     else if (comboChance2 == true && comboTime > 30 && comboTime < 60)
                     {
+                        c_Anim.SetInteger("attackNum", 2);
                         force = force * 2;
                         enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
                         comboTime = 0;
@@ -85,6 +97,7 @@ namespace UnityStandardAssets._2D
                     dir = (enemy.transform.position - transform.position).normalized;
                     if (comboChance0 == true)
                     {
+                        c_Anim.SetInteger("attackNum", 0);
                         force = initForce;
                         //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
                         //enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
@@ -96,7 +109,7 @@ namespace UnityStandardAssets._2D
                     }
                     else if (comboChance1 == true && comboTime > 20 && comboTime < 40)
                     {
-                        
+                        c_Anim.SetInteger("attackNum", 1);
                         force = force * 2;
                         //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
                         enemy.GetComponent<Rigidbody2D>().AddForce(dir * force);
@@ -107,6 +120,7 @@ namespace UnityStandardAssets._2D
                     }
                     else if (comboChance2 == true && comboTime > 20 && comboTime < 40)
                     {
+                        c_Anim.SetInteger("attackNum", 2);
                         force = force * 2;
                         enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                         enemy.GetComponent<Rigidbody2D>().AddForce(transform.up * (force * -1));
@@ -127,6 +141,10 @@ namespace UnityStandardAssets._2D
         }
         private void FixedUpdate()
         {
+            if (comboTime <= 20 || comboTime >= 40)
+            {
+                chance.SetActive(false);
+            }
             if (comboChance1 == true || comboChance2 == true)
             {
                 if (comboTime >= 0 && comboTime < 60)
@@ -135,10 +153,7 @@ namespace UnityStandardAssets._2D
                     {
                         chance.SetActive(true);
                     }
-                    if (comboTime <= 20 || comboTime >= 40)
-                    {
-                        chance.SetActive(false);
-                    }
+                    
                     comboTime++;
                 }
                 
@@ -195,7 +210,7 @@ namespace UnityStandardAssets._2D
                 move = (crouch ? move*m_CrouchSpeed : move);
 
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
-                //m_Anim.SetFloat("Speed", Mathf.Abs(move));
+                m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
                 // Move the character
                 m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
@@ -244,7 +259,7 @@ namespace UnityStandardAssets._2D
         {
             if(other.gameObject.tag == "Enemy")
             {
-                initForce = 50f;
+                initForce = 100f;
                 enemy = other.gameObject;
                 inRange = true;
                 //Debug.Log("Enemy in range");
@@ -279,6 +294,13 @@ namespace UnityStandardAssets._2D
             //{
             //    m_Grounded = false;
             //}
+        }
+
+        IEnumerator attackAnimWait()
+        {
+            yield return new WaitForSeconds(.5f);
+            c_Anim.SetBool("isAttacking", false);
+            StopCoroutine(attackAnimWait());
         }
 
         //private void OnCollisionStay2D(Collision2D other)

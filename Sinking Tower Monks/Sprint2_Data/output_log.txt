@@ -1,0 +1,366 @@
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
+    Vendor:   Intel
+    VRAM:     912 MB
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
+    Vendor:   Intel
+    VRAM:     912 MB
+Begin MonoManager ReloadAssembly
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Michelle\Source\Repos\PinliagtoforMmn sasinkmbl T:w r :onks\Spriit2_Data\Managed\UnitSinkine.dll (this message is harmleskssS)rnt2_DatL\oaaagid\g ityEUginesd\Michell e\Sougrce\ Reposess)
+kinLoading Ck:\Usnrking Tower Monks\Sprint2_Data\Managedonnks\Sinine.dll into Unity Child Domain
+anaged\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Michelle\Source\Repos\SinkingTowerMonks\Sinking Tower Monks\Sprint2_Data\Managed\AssemPlatform asfirstpasC:\Usert\Michelle\e irs harmlsess)ingTLoading C:\Usking Tower Monource\Repos\Sinkingaoed\Assemblinking Tower Monkss\Sprint2_Data\Mae isd\Assembs)-
+CSLoad-ng Cf\iserr\Michelle\Source\Repos\Sinkdingmaower
+Monks\Sinking Tower Monks\Sprint2_Data\Managed\AssPmbly-Crm as-sermbly: C:\Userts\Michelle\Source\Rep
+os\SinkingTowerMonks\Sinking Tower Monks\SprPnt2_Datm assembly: C:\Users\Michelle\Sthis message is hagrmlesMs)
+s\SLoading Cw\Uer Monkshelle\Source\Repos\Sinkingmbly-CShks\Sinl (this message isp inh2aDrtm\laesgsd)
+ssemLlo-aSdaipndl  Cn:\UsnrsiMty Child Domain
+epos\SinkingTowerMonks\Sinking Tower Monks\Sprint2_Data\Managed\Assembly-CShaPp.dll imt aUssembly: C:\Users\
+Michelle\Source\Repos\SinkingTowerMonks\Sinking Tower Monks\Sprint2_DaPa\Manoged\UnityEngine.UI.dll (this message isRepos\eSink
+ingTowerMo C:\Users\Mg Tower SMonks\Sprint2_nkingTowerMon\sUnintking ne.Ur Monks\Sprint2_Data\Managed\Unity
+EngiLoading l i\Users\Michelle\Source\
+Repos\SinkingTowerMonks\Sinking Tower Monks\Sprint2_Data\Managed\UnitPEngiaetfIorm assembly: C:\Users\Miche
+le\Source\Repos\SinkingTowerMonks\Sinking Tower Monks\Sprint2PDlta\Moraged\UnityEngine.Networking.dll (this message isingTowerMonk
+s\SLoading C:\Users\Michelle\Source\Repos\Sinkingnogine.Networkingg Tll r(thnks\Sprint2 ias \Managed\Un
+ityLngine.NeC:orking.dll into Unity Child Domain
+ngTowerMonks\Sinking Tower Monks\Sprint2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.118 seconds
+- Completed reload, in  0.119 seconds
+Platform assembly: C:\Users\Michelle\Source\Repos\SinkingTowerMonks\SinkinP Tower Monks\Sprint2_Data\Managed\Sy\tem.cCorepds\Sinhis message ks\Sinkmlgess)
+r Monks\Sprint2_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Michelle\Source\Repos\SinkingTowerMolankorSinsisembly:r Monksrs\\icheinlt2_Data\\Renaged\SysingTowerMohnksm\Singkins harmless)
+ks\Sprint2_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.354236 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 11.195668 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 243.
+Total: 0.266844 ms (FindLiveObjects: 0.024118 ms CreateObjectMapping: 0.024118 ms MarkObjects: 0.203212 ms  DeleteObjects: 0.014368 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.191050 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 261.
+Total: 0.282239 ms (FindLiveObjects: 0.026171 ms CreateObjectMapping: 0.023605 ms MarkObjects: 0.219633 ms  DeleteObjects: 0.012315 ms)
+
+The referenced script on this Behaviour (Game Object 'Player') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.502386 ms
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 706.
+Total: 0.633755 ms (FindLiveObjects: 0.059013 ms CreateObjectMapping: 0.072355 ms MarkObjects: 0.480320 ms  DeleteObjects: 0.021552 ms)
+
+Pickup Spawn is: 6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Pickup Spawn 2 is: 10
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 200
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 400
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 200
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 400
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 200
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 200
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 400
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 200
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 400
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 200
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 400
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 200
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 400
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 100
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 300
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at BossMovement+<runningAwayTeleport>c__Iterator1.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+force = 300
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Button has been pressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Move number is: 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+IndexOutOfRangeException: Array index is out of range.
+  at BossMovement+<outOfBoundsTeleport>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+BossMovement:Update()
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at BossMovement+<outOfBoundsTeleport>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+BossMovement:Update()
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at BossMovement+<outOfBoundsTeleport>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+BossMovement:Update()
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at BossMovement+<outOfBoundsTeleport>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at BossMovement+<outOfBoundsTeleport>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+The referenced script on this Behaviour (Game Object 'Player') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.988864 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 706.
+Total: 0.546518 ms (FindLiveObjects: 0.076461 ms CreateObjectMapping: 0.065684 ms MarkObjects: 0.382306 ms  DeleteObjects: 0.020526 ms)
+
+Pickup Spawn is: 6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Pickup Spawn 2 is: 10
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.882639 ms
+
+Unloading 228 unused Assets to reduce memory usage. Loaded Objects now: 262.
+Total: 0.745112 ms (FindLiveObjects: 0.030276 ms CreateObjectMapping: 0.029250 ms MarkObjects: 0.222199 ms  DeleteObjects: 0.462359 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1bb8 -> priority: 1 

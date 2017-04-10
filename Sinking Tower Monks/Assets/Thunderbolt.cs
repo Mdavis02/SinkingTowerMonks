@@ -1,46 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Thunderbolt : MonoBehaviour {
+namespace UnityStandardAssets._2D
+{
+    public class Thunderbolt : MonoBehaviour
+    {
 
-    GameObject boss;
-    GameObject player;
-    int counter;
+        GameObject boss;
+        GameObject player;
+        int counter;
+        float force;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    if (counter > 39)
+        // Use this for initialization
+        void Start()
         {
-            Destroy(this.gameObject);
+
         }
-	}
 
-    private void FixedUpdate()
-    {
-        counter++;
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
+        // Update is called once per frame
+        void Update()
         {
-            other.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-            boss = GameObject.FindWithTag("Boss1");
-            player = other.gameObject;
-            if (player.transform.position.x > boss.transform.position.x)
+            if (counter > 39)
             {
-                player.GetComponent<Rigidbody2D>().AddForce(transform.right * 500);
-                //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
+                Destroy(this.gameObject);
             }
-            else
+        }
+
+        private void FixedUpdate()
+        {
+            counter++;
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            force = (GameObject.Find("CharacterRobotBoy").GetComponent<PlatformerCharacter2D>().playerForce * 6);
+            if (other.gameObject.tag == "Player")
             {
-                player.GetComponent<Rigidbody2D>().AddForce(transform.right * -500);
-                //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
+                other.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                boss = GameObject.FindWithTag("Boss1");
+                player = other.gameObject;
+                if (player.transform.position.x > boss.transform.position.x)
+                {
+                    player.GetComponent<Rigidbody2D>().AddForce(transform.right * force);
+                    //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
+                }
+                else
+                {
+                    player.GetComponent<Rigidbody2D>().AddForce(transform.right * (-1 * force));
+                    //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
+                }
             }
         }
     }

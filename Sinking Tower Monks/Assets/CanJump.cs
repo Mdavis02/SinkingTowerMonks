@@ -54,6 +54,8 @@ namespace UnityStandardAssets._2D
                 GameObject.Find("CharacterRobotBoy").GetComponent<PlatformerCharacter2D>().m_Grounded = true;
               
             }
+            if (other.gameObject.tag == "IcePlat")
+            { }
         }
 
         //void OnTriggerStay2D(Collider2D other)

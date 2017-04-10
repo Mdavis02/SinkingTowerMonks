@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class PlatformPickup : MonoBehaviour {
-    GameObject safetyPlatform;
-
+    public GameObject safetyPlatform;
+    GameObject safePlat;
 	// Use this for initialization
 	void Start () {
-	    safetyPlatform = GameObject.Find("safePlat");
-        safetyPlatform.SetActive(false);
+	    safePlat = Instantiate(safetyPlatform) as GameObject;
+        safePlat.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class PlatformPickup : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            safetyPlatform.SetActive(true);
+            safePlat.SetActive(true);
             Destroy(this.gameObject);
         }
     }

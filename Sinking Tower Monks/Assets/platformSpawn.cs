@@ -10,6 +10,8 @@ public class platformSpawn : MonoBehaviour {
     public GameObject player;
     public GameObject startPlat;
     public GameObject platPickup;
+    GameObject childPickup;
+    GameObject parentPickup;
     GameObject currentPickup;
     int pickupSpawn;
     int randomSpawn;
@@ -50,11 +52,11 @@ public class platformSpawn : MonoBehaviour {
             int doublePlatform = Random.Range(-1, 2);
             if (brokenPlat >= 0)
             {
-                Instantiate(platform, new Vector3(randomSpawn, 8.8f, 0), Quaternion.identity);
+                parentPickup = Instantiate(platform, new Vector3(randomSpawn, 8.8f, 0), Quaternion.identity) as GameObject;
                 if (i == pickupSpawn)
                 {
-                    Instantiate(platPickup, new Vector3(randomSpawn, 9f, 0), Quaternion.identity);
-
+                    childPickup = Instantiate(platPickup, new Vector3(randomSpawn, 9f, 0), Quaternion.identity) as GameObject;
+                    childPickup.transform.parent = parentPickup.transform;
                 }
                 if (doublePlatform > 0 && randomSpawn != 1 && randomSpawn != -1 && randomSpawn != 0)
                 {

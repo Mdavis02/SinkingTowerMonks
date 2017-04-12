@@ -86,6 +86,8 @@
   <ItemGroup>
     <Compile Include="Assets\BossMovement.cs" />
     <Compile Include="Assets\CanJump.cs" />
+    <Compile Include="Assets\DefensePickup.cs" />
+    <Compile Include="Assets\DefenseScript.cs" />
     <Compile Include="Assets\PlatformPickup.cs" />
     <Compile Include="Assets\SafetyPlatform.cs" />
     <Compile Include="Assets\Scripts\AdvancedCharacter2D.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Assets\Scripts\Weapon2D.cs" />
     <Compile Include="Assets\ScrollBkg.cs" />
     <Compile Include="Assets\SpearMove.cs" />
+    <Compile Include="Assets\SplitUI.cs" />
     <Compile Include="Assets\Thunderbolt.cs" />
     <Compile Include="Assets\outOfBounds.cs" />
     <Compile Include="Assets\platformBroken.cs" />

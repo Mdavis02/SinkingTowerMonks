@@ -25,6 +25,8 @@ public class platformSpawn : MonoBehaviour {
     bool placeholder = false;
     bool boss1Spawn = false;
     bool started = false;
+    public int changePatt = 0;
+    public int pattern;
     int k = 0;
 	// Use this for initialization
 	void Start () {
@@ -105,34 +107,161 @@ public class platformSpawn : MonoBehaviour {
         }
 
         placeholder = true;
-        
+
 
         while (placeholder == true)
         {
-            if (k == 0 || k == 4)
+            if (boss1Spawn == false)
             {
-                Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
-                if (k == 4)
+                pattern = Random.Range(0, 4);
+            }
+            if (pattern == 1)
+            {
+                if (k == 1 || k == 3 || k == 5)
+                {
+                    Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                    
+
+                }
+                else if (k == 0 || k == 2 || k == 4 || k == 6)
+                {
+                    Instantiate(platform, new Vector3(0, 8.8f, 0), Quaternion.identity);
+                    if (boss1Spawn == false)
+                    {
+                        Instantiate(boss1, new Vector3(0, 11f, 0), Quaternion.identity);
+                        boss1Spawn = true;
+                    }
+                    
+                }
+                //else if (k == 5 || k == 7)
+                //{
+                //    //Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                //    Instantiate(platform, new Vector3(3.75f, 8.8f, 0), Quaternion.identity);
+                //}
+                k++;
+                if (k == 6)
                 {
                     k = 0;
                 }
-            }
-            else if (k == 1 || k == 3)
-            {
-                Instantiate(platform, new Vector3(0, 8.8f, 0), Quaternion.identity);
-                if (boss1Spawn == false)
+                yield return new WaitForSeconds(2.5f);
+                changePatt++;
+                if (changePatt == 12)
                 {
-                    Instantiate(boss1, new Vector3(0, 11f, 0), Quaternion.identity);
-                    boss1Spawn = true;
+                    changePatt = 0;
+                    k = 0;
+                    pattern = Random.Range(0, 4);
                 }
             }
-            else if (k == 2)
+            if (pattern == 0)
             {
-                //Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
-                Instantiate(platform, new Vector3(3.75f, 8.8f, 0), Quaternion.identity);
+                if (k == 1 || k == 5)
+                {
+                    Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                    
+                }
+                else if (k == 0 || k == 2 || k == 4 || k == 6)
+                {
+                    Instantiate(platform, new Vector3(0, 8.8f, 0), Quaternion.identity);
+                    if (boss1Spawn == false)
+                    {
+                        Instantiate(boss1, new Vector3(0, 11f, 0), Quaternion.identity);
+                        boss1Spawn = true;
+                    }
+                }
+                else if (k == 3 || k == 7)
+                {
+                    //Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                    Instantiate(platform, new Vector3(3.75f, 8.8f, 0), Quaternion.identity);
+                    
+                }
+                k++;
+                if (k == 8)
+                {
+                    k = 0;
+                }
+                yield return new WaitForSeconds(2.5f);
+                changePatt++;
+                if (changePatt == 12)
+                {
+                    changePatt = 0;
+                    k = 0;
+                    pattern = Random.Range(1, 4);
+                }
             }
-            k++;
-            yield return new WaitForSeconds(2.5f);
+            if (pattern == 2)
+            {
+                //if (k == 1 || k == 3 || k == 5)
+                //{
+                //    Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+
+                //}
+                if (k == 0 || k == 2 || k == 4 || k == 6)
+                {
+                    Instantiate(platform, new Vector3(0, 8.8f, 0), Quaternion.identity);
+                    if (boss1Spawn == false)
+                    {
+                        Instantiate(boss1, new Vector3(0, 11f, 0), Quaternion.identity);
+                        boss1Spawn = true;
+                    }
+                }
+                else if (k == 1 || k == 3 || k == 5)
+                {
+                    //Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                    Instantiate(platform, new Vector3(3.75f, 8.8f, 0), Quaternion.identity);
+                    
+                }
+                k++;
+                if (k == 6)
+                {
+                    k = 0;
+                }
+                yield return new WaitForSeconds(2.5f);
+                changePatt++;
+                if (changePatt == 12)
+                {
+                    changePatt = 0;
+                    k = 0;
+                    pattern = Random.Range(0, 4);
+                }
+            }
+            if (pattern == 3)
+            {
+                if (k == 1 || k == 2)
+                {
+                    Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                    
+                }
+                else if (k == 0 || k == 3)
+                {
+                    Instantiate(platform, new Vector3(0, 8.8f, 0), Quaternion.identity);
+                    if (boss1Spawn == false)
+                    {
+                        Instantiate(boss1, new Vector3(0, 11f, 0), Quaternion.identity);
+                        boss1Spawn = true;
+                    }
+                    
+                }
+                else if (k == 4 || k == 5)
+                {
+                    //Instantiate(platform, new Vector3(-3.75f, 8.8f, 0), Quaternion.identity);
+                    Instantiate(platform, new Vector3(3.75f, 8.8f, 0), Quaternion.identity);
+                    
+                }
+                k++;
+                if (k == 6)
+                {
+                    k = 0;
+                }
+                yield return new WaitForSeconds(2.5f);
+                changePatt++;
+                if (changePatt == 12)
+                {
+                    changePatt = 0;
+                    k = 0;
+                    pattern = Random.Range(0, 3);
+                }
+            }
+
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System;
+
 using System.Collections;
 
 namespace UnityStandardAssets._2D
@@ -10,8 +10,8 @@ namespace UnityStandardAssets._2D
         public int direction = 1;
         GameObject player;
         enum state { patrol, attack, death };
-        int stateInt;
-        int attackState;
+        public int stateInt;
+        public int attackState;
         float force;
 
         // Use this for initialization
@@ -24,9 +24,13 @@ namespace UnityStandardAssets._2D
         // Update is called once per frame
         void Update()
         {
+            if (transform.position.y < -6)
+            {
+                Destroy(this.gameObject);
+            }
             if (player.transform.position.y >= transform.position.y - 1 && player.transform.position.y <= transform.position.y + 1)
             {
-                
+                stateInt = 1;
                 if (direction == -1 && player.transform.position.x > transform.position.x)
                 {
                     direction = direction * -1;
@@ -37,33 +41,17 @@ namespace UnityStandardAssets._2D
                     direction = direction * -1;
                     transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
                 }
-                if (Math.Abs(player.transform.position.x - transform.position.x) > .5)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, .01f * Time.deltaTime);
-                }
-                if (stateInt != 3)
-                {
-                    stateInt = 1;
-                }
+                //if (Math.Abs(player.transform.position.x - transform.position.x) > .5)
+                //{
+                //    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, .01f * Time.deltaTime);
+                //}
+                
                 else
                 {
-                    StartCoroutine(attackFunct());
+                    //StartCoroutine(attackFunct());
                     attackFunct();
-                    if (attackState == 2)
-                    {
-                        if (player.transform.position.x > transform.position.x)
-                        {
-                            player.GetComponent<Rigidbody2D>().AddForce(transform.right * force);
-                            //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
-                        }
-                        else
-                        {
-                            player.GetComponent<Rigidbody2D>().AddForce(transform.right * (-1 * force));
-                            //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
-                        }
-                    }
-                    attackState = 1;
-                    //stateInt = 1;
+                    
+                    stateInt = 1;
                 }
             }
             else
@@ -92,17 +80,17 @@ namespace UnityStandardAssets._2D
                     transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
                 }
             }
-
-
-        }
-
-        void OnTriggerStay2D(Collider2D other)
-        {
             if (other.gameObject.tag == "Player")
             {
                 stateInt = 3;
             }
+
         }
+
+        //void OnTriggerStay2D(Collider2D other)
+        //{
+            
+        //}
 
         void OnTriggerExit2D(Collider2D other)
         {
@@ -112,11 +100,26 @@ namespace UnityStandardAssets._2D
             }
         }
 
-        IEnumerator attackFunct()
+        void attackFunct()
         {
-            yield return new WaitForSeconds(1f);
-            attackState = UnityEngine.Random.Range(1, 3);
-            StopCoroutine(attackFunct());
+            //yield return new WaitForSeconds(1f);
+            attackState = Random.Range(1, 10);
+            if (attackState == 2)
+            {
+                //Debug.Log("attacking");
+                if (player.transform.position.x > transform.position.x)
+                {
+                    player.GetComponent<Rigidbody2D>().AddForce(transform.right * force);
+                    //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
+                }
+                else
+                {
+                    player.GetComponent<Rigidbody2D>().AddForce(transform.right * (-1 * force));
+                    //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
+                }
+            }
+            attackState = 1;
+            //StopCoroutine(attackFunct());
         }
     }
 }

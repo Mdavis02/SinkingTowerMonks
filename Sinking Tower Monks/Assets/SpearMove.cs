@@ -10,11 +10,14 @@ public class SpearMove : MonoBehaviour {
     void Start () {
         player = GameObject.Find("CharacterRobotBoy");
         target = player.transform.position;
+        Quaternion rotation = Quaternion.LookRotation
+             (target - transform.position, transform.TransformDirection(Vector3.up));
+        transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Vector3.MoveTowards(transform.position, target, 2f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, 10f * Time.deltaTime);
         if (transform.position == target)
         {
             Destroy(this.gameObject);
@@ -27,13 +30,13 @@ public class SpearMove : MonoBehaviour {
         {
             if (other.transform.position.x > transform.position.x)
             {
-                other.GetComponent<Rigidbody2D>().AddForce(transform.right * 2000);
+                other.GetComponent<Rigidbody2D>().AddForce(transform.right * 200);
                 //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
                 Destroy(this.gameObject);
             }
             else
             {
-                other.GetComponent<Rigidbody2D>().AddForce(transform.right * -2000);
+                other.GetComponent<Rigidbody2D>().AddForce(transform.right * -200);
                 //player.GetComponent<Rigidbody2D>().AddForce(transform.up * -1000);
                 Destroy(this.gameObject);
             }

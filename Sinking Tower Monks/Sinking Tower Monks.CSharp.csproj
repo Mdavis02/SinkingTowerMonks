@@ -85,6 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BossMovement.cs" />
+    <Compile Include="Assets\BossMovement2.cs" />
+    <Compile Include="Assets\BossMovement3.cs" />
     <Compile Include="Assets\CanJump.cs" />
     <Compile Include="Assets\DefensePickup.cs" />
     <Compile Include="Assets\DefenseScript.cs" />

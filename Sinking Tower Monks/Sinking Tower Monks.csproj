@@ -70,9 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BossMovement.cs" />
+    <Compile Include="Assets\BossMovement2.cs" />
+    <Compile Include="Assets\BossMovement3.cs" />
     <Compile Include="Assets\CanJump.cs" />
     <Compile Include="Assets\DefensePickup.cs" />
     <Compile Include="Assets\DefenseScript.cs" />
+    <Compile Include="Assets\EnemyMovement.cs" />
     <Compile Include="Assets\PlatformPickup.cs" />
     <Compile Include="Assets\SafetyPlatform.cs" />
     <Compile Include="Assets\Scripts\AdvancedCharacter2D.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="Assets\platformBroken.cs" />
     <Compile Include="Assets\platformMovement.cs" />
     <Compile Include="Assets\platformSpawn.cs" />
+    <Compile Include="Assets\progressBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

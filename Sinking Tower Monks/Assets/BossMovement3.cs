@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+
 using System.Collections.Generic;
+
 
 
 public class BossMovement3 : MonoBehaviour
@@ -12,6 +14,7 @@ public class BossMovement3 : MonoBehaviour
 
     
     public GameObject fireball;
+    public GameObject target;
     GameObject player;
     public bool knockedDown = false;
     public bool inAir = false;
@@ -69,7 +72,8 @@ public class BossMovement3 : MonoBehaviour
             }
             if (fireAttack == true && downed == false)
             {
-                Instantiate(fireball);
+                StartCoroutine(fireSpawn());
+                fireSpawn();
                 fireAttack = false;
             }
             //if (spearAttack == true && downed == false)
@@ -229,6 +233,23 @@ public class BossMovement3 : MonoBehaviour
         StopCoroutine(fireAttackTeleport());
         //outOfBoundsAppear();
         //GameObject.Find("Player").GetComponent<PlatformerCharacter2D>().m_grounded = false;    
+    }
+
+    IEnumerator fireSpawn()
+    {
+        double rad = .2;
+        for (int j = 0; j < 10; j++)
+        {
+            double x = 0 + 100 * System.Math.Cos(rad);
+            double y = 0 + 100 * System.Math.Cos(rad);
+            float floatx = (float)x;
+            float floaty = (float)y;
+            Vector3 targetPos = new Vector3(floatx, floaty, 0);
+            yield return new WaitForSeconds(.3f);
+            Instantiate(fireball);
+            Instantiate(fireball, targetPos, Quaternion.identity);
+            rad = rad + .2;
+        }
     }
 
     //IEnumerator spearAttackTeleport()

@@ -32,6 +32,8 @@ public class BossMovement2 : MonoBehaviour
     int k = 0;
     int j = 0;
     int l = 0;
+    int spearPos;
+    int spearPos2;
     public int tell = 1;
     public int moveTimer = 0;
     // Use this for initialization
@@ -68,9 +70,8 @@ public class BossMovement2 : MonoBehaviour
             
             if (spearAttack == true && downed == false)
             {
-                Instantiate(spear, new Vector3(transform.position.x - .5f, transform.position.y + .5f, transform.position.z), Quaternion.identity);
-                Instantiate(spear, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), Quaternion.identity);
-                Instantiate(spear, new Vector3(transform.position.x + .5f, transform.position.y + .5f, transform.position.z), Quaternion.identity);
+                StartCoroutine(spearSpawn());
+                
                 spearAttack = false;
             }
             if (runningAway == true && downed == false)
@@ -223,6 +224,20 @@ public class BossMovement2 : MonoBehaviour
         StopCoroutine(spearAttackTeleport());
         //outOfBoundsAppear();
         //GameObject.Find("Player").GetComponent<PlatformerCharacter2D>().m_grounded = false;    
+    }
+
+    IEnumerator spearSpawn()
+    {
+        for (int s = 0; s < 5; s++)
+        {
+            spearPos = Random.Range(-5, 7);
+            spearPos2 = Random.Range(-5, 7);
+            Instantiate(spear, new Vector3(spearPos, 7, transform.position.z), Quaternion.identity);
+            Instantiate(spear, new Vector3(spearPos2, 7, transform.position.z), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+
+        }
+        StopCoroutine(spearSpawn());
     }
 
     //IEnumerator spearAttackTeleport()

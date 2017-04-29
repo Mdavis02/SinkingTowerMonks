@@ -7,7 +7,7 @@ public class platformBroken : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(destroyPlat());
+        
     }
 	
 	// Update is called once per frame
@@ -19,6 +19,7 @@ public class platformBroken : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            StartCoroutine(destroyPlat());
             destroyPlat();
         }
     }
@@ -26,6 +27,11 @@ public class platformBroken : MonoBehaviour {
     IEnumerator destroyPlat()
     {
         yield return new WaitForSeconds(2f);
+        Instantiate(fragments, new Vector3((transform.position.x + .4f), transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(fragments, new Vector3((transform.position.x - .4f), transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(fragments, new Vector3((transform.position.x + .8f), transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(fragments, new Vector3((transform.position.x - .8f), transform.position.y, transform.position.z), Quaternion.identity);
+        Instantiate(fragments, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

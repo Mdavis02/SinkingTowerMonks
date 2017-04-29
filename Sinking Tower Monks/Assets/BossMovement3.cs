@@ -227,6 +227,7 @@ public class BossMovement3 : MonoBehaviour
         {
             fireAttack = true;
         }
+        yield return new WaitForSeconds(10f);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         //GetComponent<Rigidbody2D>().isKinematic = false;
         teleportOK = true;
@@ -238,17 +239,18 @@ public class BossMovement3 : MonoBehaviour
     IEnumerator fireSpawn()
     {
         double rad = .2;
-        for (int j = 0; j < 10; j++)
+        for (int j = 0; j < 25; j++)
         {
             double x = 0 + 100 * System.Math.Cos(rad);
-            double y = 0 + 100 * System.Math.Cos(rad);
+            double y = 0 + 100 * System.Math.Sin(rad);
             float floatx = (float)x;
             float floaty = (float)y;
             Vector3 targetPos = new Vector3(floatx, floaty, 0);
-            yield return new WaitForSeconds(.3f);
-            Instantiate(fireball);
-            Instantiate(fireball, targetPos, Quaternion.identity);
+            
+            Instantiate(fireball, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
+            Instantiate(target, targetPos, Quaternion.identity);
             rad = rad + .2;
+            yield return new WaitForSeconds(.2f);
         }
     }
 

@@ -12,16 +12,20 @@ public class platformSpawn : MonoBehaviour {
     public GameObject startPlat;
     public GameObject platPickup;
     public GameObject enemy;
+    public GameObject meteor;
     GameObject childEnemy;
     GameObject childPickup;
     GameObject parentPickup;
     GameObject currentPickup;
+    public int spawnAmount = 12;
+    public float spacing = 3.5f;
     int enemySpawn;
     int pickupSpawn;
     int pickupSpawn2;
     int randomDist;
     int randomSpawn;
     int offset = 1;
+    int count = 0;
     bool placeholder = false;
     bool boss1Spawn = false;
     bool started = false;
@@ -61,15 +65,40 @@ public class platformSpawn : MonoBehaviour {
         }
     }
 
+    void FixedUpdate()
+    {
+        if (Application.loadedLevelName == "Level3")
+        {
+            if (count == 100)
+            {
+                Instantiate(meteor, new Vector3(Random.Range(-6, 6), 7, 0), Quaternion.identity);
+            }
+            if (count == 200)
+            {
+                Instantiate(meteor, new Vector3(Random.Range(-6, 6), 7, 0), Quaternion.identity);
+                Instantiate(meteor, new Vector3(Random.Range(-6, 6), 7, 0), Quaternion.identity);
+                count = 0;
+            }
+            count++;
+        }
+        
+    }
+
     IEnumerator spawnRate ()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < spawnAmount; i++)
         {
             enemySpawn = Random.Range(0, 5);
-            int brokenPlat = 1/*Random.Range(-2, 4)*/;
+            int brokenPlat = Random.Range(1, 6);
             int randomSpawn = Random.Range(-2, 2) + offset;
             int doublePlatform = Random.Range(-1, 2);
-            if (brokenPlat >= 0)
+            if (brokenPlat == 5)
+            {
+                Instantiate(platformBroken, new Vector3(randomSpawn * -1, 8.8f, 0), Quaternion.identity);
+                yield return new WaitForSeconds(spacing);
+                offset = offset * -1;
+            }
+            else
             {
                 parentPickup = Instantiate(platform, new Vector3(randomSpawn, 8.8f, 0), Quaternion.identity) as GameObject;
                 if (enemySpawn == 3 || enemySpawn == 5 || enemySpawn == 1)
@@ -90,19 +119,19 @@ public class platformSpawn : MonoBehaviour {
                 {
                     Instantiate(platform, new Vector3(randomSpawn * -1, 8.8f, 0), Quaternion.identity);
                 }
-                yield return new WaitForSeconds(3.5f);
+                yield return new WaitForSeconds(spacing);
                 offset = offset * -1;
             }
-            else
-            {
-                Instantiate(platformBroken, new Vector3(randomSpawn, 8.8f, 0), Quaternion.identity);
-                if (doublePlatform > 0 && randomSpawn != 1 && randomSpawn != -1 && randomSpawn != 0)
-                {
-                    Instantiate(platformBroken, new Vector3(randomSpawn * -1, 8.8f, 0), Quaternion.identity);
-                }
-                yield return new WaitForSeconds(3.5f);
-                offset = offset * -1;
-            }
+            //else
+            //{
+            //    Instantiate(platformBroken, new Vector3(randomSpawn, 8.8f, 0), Quaternion.identity);
+            //    if (doublePlatform > 0 && randomSpawn != 1 && randomSpawn != -1 && randomSpawn != 0)
+            //    {
+            //        Instantiate(platformBroken, new Vector3(randomSpawn * -1, 8.8f, 0), Quaternion.identity);
+            //    }
+            //    yield return new WaitForSeconds(spacing);
+            //    offset = offset * -1;
+            //}
             //Debug.Log(i);
         }
 
@@ -143,7 +172,7 @@ public class platformSpawn : MonoBehaviour {
                 {
                     k = 0;
                 }
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(spacing - 1);
                 changePatt++;
                 if (changePatt == 12)
                 {
@@ -179,7 +208,7 @@ public class platformSpawn : MonoBehaviour {
                 {
                     k = 0;
                 }
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(spacing - 1);
                 changePatt++;
                 if (changePatt == 12)
                 {
@@ -215,7 +244,7 @@ public class platformSpawn : MonoBehaviour {
                 {
                     k = 0;
                 }
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(spacing - 1);
                 changePatt++;
                 if (changePatt == 12)
                 {
@@ -252,7 +281,7 @@ public class platformSpawn : MonoBehaviour {
                 {
                     k = 0;
                 }
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(spacing - 1);
                 changePatt++;
                 if (changePatt == 12)
                 {
